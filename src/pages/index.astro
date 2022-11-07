@@ -1,0 +1,68 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Card from '../components/Card.astro';
+---
+
+<Layout title="Welcome to Astro.">
+	<main>
+		<h1>
+			<span class="text-gradient" id="">Internal Cookie set: <span id="cookieBoolean">False</span></span>
+		</h1>
+		<div style="padding: 24px 0;">
+			<button id="deleteCookie" class="cta">Delete Cookie</button>
+			<button id="addCookie" class="cta">Add Cookie</button>
+		</div>
+	</main>
+</Layout>
+
+<script>
+	const deleteButton = document.querySelector("#deleteCookie");
+	const addButton = document.querySelector("#addCookie");
+	const cookieStatus = document.querySelector("#cookieBoolean");
+
+	document.cookie = 'isInternalVisitor=true; expires=Fri, 31 Dec 2027 07:00:00 GMT; domain=.127.0.0.1;path=/';
+
+	if (document.cookie) {
+		cookieStatus.innerHTML = "True";
+	}
+
+	deleteButton.addEventListener("click", function(){
+		document.cookie = 'isInternalVisitor=true; expires=Mon, 01 Jan 1990 12:00:00 UTC; domain=.127.0.0.1;path=/';
+		cookieStatus.innerHTML = "False";
+	});
+
+	addButton.addEventListener("click", function(){
+		document.cookie = 'isInternalVisitor=true; expires=Fri, 31 Dec 2027 07:00:00 GMT; domain=.127.0.0.1;path=/';
+		cookieStatus.innerHTML = "True";
+	});
+
+	console.log("Cookie: ", document.cookie)
+</script>
+
+<style>
+	main {
+		margin: auto;
+		padding: 1.5rem;
+		max-width: 60ch;
+	}
+	h1 {
+		font-size: 3rem;
+		font-weight: 800;
+		margin: 0;
+	}
+	.text-gradient {
+		background-image: var(--accent-gradient);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-size: 400%;
+		background-position: 0%;
+	}
+	.cta {
+		display: inline-block;
+		padding: 8px 16px;
+		cursor: pointer;
+	}
+	.cta:first-child {
+		margin-right: 12px;
+	}
+</style>
