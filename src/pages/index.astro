@@ -20,19 +20,19 @@ import Card from '../components/Card.astro';
 	const addButton = document.querySelector("#addCookie");
 	const cookieStatus = document.querySelector("#cookieBoolean");
 
-	document.cookie = 'isInternalVisitor=true; expires=Fri, 31 Dec 2027 07:00:00 GMT; domain=.127.0.0.1;path=/';
+	document.cookie = 'isInternalVisitor=true; expires=Fri, 31 Dec 2027 07:00:00 GMT; domain=.profound-moxie-b6e658.netlify.app;path=/';
 
 	if (document.cookie) {
 		cookieStatus.innerHTML = "True";
 	}
 
 	deleteButton.addEventListener("click", function(){
-		document.cookie = 'isInternalVisitor=true; expires=Mon, 01 Jan 1990 12:00:00 UTC; domain=.127.0.0.1;path=/';
+		document.cookie = 'isInternalVisitor=true; expires=Mon, 01 Jan 1990 12:00:00 UTC; domain=.profound-moxie-b6e658.netlify.app;path=/';
 		cookieStatus.innerHTML = "False";
 	});
 
 	addButton.addEventListener("click", function(){
-		document.cookie = 'isInternalVisitor=true; expires=Fri, 31 Dec 2027 07:00:00 GMT; domain=.127.0.0.1;path=/';
+		document.cookie = 'isInternalVisitor=true; expires=Fri, 31 Dec 2027 07:00:00 GMT; domain=.profound-moxie-b6e658.netlify.app;path=/';
 		cookieStatus.innerHTML = "True";
 	});
 
