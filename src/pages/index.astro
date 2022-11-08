@@ -16,27 +16,38 @@ import Card from '../components/Card.astro';
 </Layout>
 
 <script>
-	const deleteButton = document.querySelector("#deleteCookie");
-	const addButton = document.querySelector("#addCookie");
-	const cookieStatus = document.querySelector("#cookieBoolean");
+	const isUK = window.location.origin.endsWith('.co.uk');
+	const isAU = window.location.origin.endsWith('.com.au');
+	const isFR = window.location.origin.endsWith('.fr');
+	const isDE = window.location.origin.endsWith('.de');
+	const isJP = window.location.origin.endsWith('.jp');
+	const isBR = window.location.origin.endsWith('.br');
+	const expireDate = 'Fri, 31 Dec 2027 07:00:00 GMT';
 
-	document.cookie = 'isInternalVisitor=true; expires=Fri, 31 Dec 2027 07:00:00 GMT; domain=.profound-moxie-b6e658.netlify.app;path=/';
-
-	if (document.cookie) {
-		cookieStatus.innerHTML = "True";
+	if (isUK) {
+		document.cookie = 'isInternalVisitor=true; expires='+ expireDate +'; domain=.crowdstrike.co.uk;path=/';
+	}
+	else if (isAU) {
+		document.cookie = 'isInternalVisitor=true; expires='+ expireDate +'; domain=.crowdstrike.au;path=/';
+	} 
+	else if (isFR) {
+		document.cookie = 'isInternalVisitor=true; expires='+ expireDate +'; domain=.crowdstrike.fr;path=/';
+	}
+	else if (isDE) {
+		document.cookie = 'isInternalVisitor=true; expires='+ expireDate +'; domain=.crowdstrike.de;path=/';
+	}
+	else if (isJP) {
+		document.cookie = 'isInternalVisitor=true; expires='+ expireDate +'; domain=.crowdstrike.jp;path=/';
+	}
+	else if (isBR) {
+		document.cookie = 'isInternalVisitor=true; expires='+ expireDate +'; domain=.crowdstrike.br;path=/';
+	}
+	else {
+		document.cookie = 'isInternalVisitor=true; expires='+ expireDate +'; domain=.crowdstrike.com;path=/';
 	}
 
-	deleteButton.addEventListener("click", function(){
-		document.cookie = 'isInternalVisitor=true; expires=Mon, 01 Jan 1990 12:00:00 UTC; domain=.profound-moxie-b6e658.netlify.app;path=/';
-		cookieStatus.innerHTML = "False";
-	});
-
-	addButton.addEventListener("click", function(){
-		document.cookie = 'isInternalVisitor=true; expires=Fri, 31 Dec 2027 07:00:00 GMT; domain=.profound-moxie-b6e658.netlify.app;path=/';
-		cookieStatus.innerHTML = "True";
-	});
-
 	console.log("Cookie: ", document.cookie)
+
 </script>
 
 <style>
