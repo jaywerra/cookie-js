@@ -25,25 +25,25 @@ import Card from '../components/Card.astro';
 	const expireDate = 'Fri, 31 Dec 2027 07:00:00 GMT';
 
 	if (isUK) {
-		document.cookie = 'isInternalVisitor=true; expires='+ expireDate +'; domain=.crowdstrike.co.uk;path=/';
+		document.cookie = 'iiV=true; expires='+ expireDate +'; domain=.crowdstrike.co.uk;path=/';
 	}
 	else if (isAU) {
-		document.cookie = 'isInternalVisitor=true; expires='+ expireDate +'; domain=.crowdstrike.au;path=/';
+		document.cookie = 'iiV=true; expires='+ expireDate +'; domain=.crowdstrike.au;path=/';
 	} 
 	else if (isFR) {
-		document.cookie = 'isInternalVisitor=true; expires='+ expireDate +'; domain=.crowdstrike.fr;path=/';
+		document.cookie = 'iiV=true; expires='+ expireDate +'; domain=.crowdstrike.fr;path=/';
 	}
 	else if (isDE) {
-		document.cookie = 'isInternalVisitor=true; expires='+ expireDate +'; domain=.crowdstrike.de;path=/';
+		document.cookie = 'iiV=true; expires='+ expireDate +'; domain=.crowdstrike.de;path=/';
 	}
 	else if (isJP) {
-		document.cookie = 'isInternalVisitor=true; expires='+ expireDate +'; domain=.crowdstrike.jp;path=/';
+		document.cookie = 'iiV=true; expires='+ expireDate +'; domain=.crowdstrike.jp;path=/';
 	}
 	else if (isBR) {
-		document.cookie = 'isInternalVisitor=true; expires='+ expireDate +'; domain=.crowdstrike.br;path=/';
+		document.cookie = 'iiV=true; expires='+ expireDate +'; domain=.crowdstrike.br;path=/';
 	}
 	else {
-		document.cookie = 'isInternalVisitor=true; expires='+ expireDate +'; domain=.crowdstrike.com;path=/';
+		document.cookie = 'iiV=true; expires=Fri, 31 Dec 2027 07:00:00 GMT; domain=.crowdstrike.com;path=/';
 	}
 
 	console.log("Cookie: ", document.cookie)
